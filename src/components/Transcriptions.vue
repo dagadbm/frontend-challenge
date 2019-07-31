@@ -1,7 +1,11 @@
 <template>
   <div v-if="transcriptions.length > 0">
     <div class="grid">
-      <Transcription :key="t.id" v-for="t in transcriptions" :transcription="t" />
+      <Transcription
+        :key="t.id"
+        v-for="t in transcriptions"
+        :transcription="t"
+      />
     </div>
     <div class="add-row">
       <AddRow v-on:click="createTranscription" />

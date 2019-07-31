@@ -1,4 +1,3 @@
-
 <template>
   <div class="grid-item">
     <label class="checkbox">
@@ -12,23 +11,23 @@
       class="voice"
       v-on:blur="updateTranscription('voice', $event)"
       contenteditable="true"
-      suppressContentEditableWarning
-    >{{transcription.voice || 'Insert Voice'}}</div>
+    >
+      {{ transcription.voice || 'Insert Voice' }}
+    </div>
     <div
       class="text"
       v-on:blur="updateTranscription('text', $event)"
       contenteditable="true"
-      suppressContentEditableWarning
-    >{{transcription.text || 'Insert Text'}}</div>
-    <div class="delete" v-on:click="deleteTranscription(id)">
+    >
+      {{ transcription.text || 'Insert Text' }}
+    </div>
+    <div class="delete" v-on:click="deleteTranscription">
       <Delete />
     </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex';
-
 import Person from '@/assets/svg/person.svg';
 import Delete from '@/assets/svg/delete.svg';
 
@@ -50,7 +49,7 @@ export default {
         [type]: event.target.textContent,
       });
     },
-    deleteTranscription(id) {
+    deleteTranscription() {
       this.$store.commit('delete', {
         id: this.transcription.id,
       });
