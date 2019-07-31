@@ -13,10 +13,8 @@ install:
   - yarn install
 script:
   - yarn build
-  - yarn start &
-  - yarn test
 deploy:
   provider: surge
   project: ./dist/
-  domain: frontend-challenge.surge.sh
+  domain: frontend-challenge-vue.surge.sh
   skip_cleanup: true
